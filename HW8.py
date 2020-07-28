@@ -4,7 +4,7 @@ def read_file(name):
         json.data = json.load(f)
     news_list = json.data['rss']['channel']['items']
     for sep_news in news_list:
-        text_news = sep_news['description']
+        text_news = sep_news['description'].lower()
     return text_news
 
 

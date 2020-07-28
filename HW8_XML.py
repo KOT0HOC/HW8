@@ -6,7 +6,7 @@ def read_file(name):
     news_list = root.findall('channel/item/description')
     text_news = []
     for news in news_list:
-        result = news.text
+        result = news.text.lower()
         text_news.append(result)
     return text_news
 
