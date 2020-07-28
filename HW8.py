@@ -3,17 +3,20 @@ def read_file(name):
     with open(name, encoding='utf-8') as f:
         json.data = json.load(f)
     news_list = json.data['rss']['channel']['items']
+    all_text = []
     for sep_news in news_list:
         text_news = sep_news['description'].lower()
-    return text_news
+        all_text.append(text_news)
+    return all_text
 
 
-def count_word(text_news):
-    to_list = text_news.split(' ')
-    to_set = set()
-    for i in to_list:
-        if len(i) > 6:
-            to_set.add(i)
+def count_word(all_text):
+    for one_news in all_text:
+        to_list = one_news.split(' ')
+        to_set = set()
+        for i in to_list:
+            if len(i) > 6:
+                to_set.add(i)
     word_value = {}
     for i in to_set:
         count = 0
